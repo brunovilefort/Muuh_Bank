@@ -34,11 +34,13 @@ function operation() {
         const action = answer["action"]
         if (action === "Criar Conta") {
             const createAccount = require("./functionalities/create_account");
-            createAccount()
+            createAccount();
         } else if (action === "Consultar Saldo") {
-
+            const getAccountBalance = require("./functionalities/getAccountBalance");
+            getAccountBalance();
         } else if (action === "Depositar") {
-
+            const deposit = require("./functionalities/deposit");
+            deposit();
         } else if (action === "Sacar") {
 
         } else if (action === "Sair") {

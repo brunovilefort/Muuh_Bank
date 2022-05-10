@@ -25,8 +25,8 @@ function buildAccount() {
 inquirer.prompt([
 {
 name: "accountName",
-message: "Digite um nome para a sua conta:\n"
-}
+message: "Digite um nome para a sua conta:",
+},
 ])
 .then((answer) => {
 const accountName = answer["accountName"]
@@ -49,7 +49,7 @@ return
 // Create account file:
 fs.writeFileSync(
 `accounts/${accountName}.json`,
-`{"balance": 0}`,
+'{"balance": 0}',
 function (err) {
 console.log(err);
 },

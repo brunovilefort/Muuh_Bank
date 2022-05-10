@@ -17,7 +17,7 @@ function withdraw() {
     inquirer.prompt([
         {
             name: "accountName",
-            message: "\nQual o nome da sua conta?\n"
+            message: "Qual o nome da sua conta?",
         },
     ])   
     .then((answer) => {
@@ -29,7 +29,7 @@ function withdraw() {
         inquirer.prompt([
             {
                 name: "amount",
-                message: "\nQuanto você deseja sacar?\n"
+                message: "Quanto você deseja sacar?",
             },
         ])
         .then((answer) => {

@@ -5,7 +5,6 @@ const cowsay = require("cowsay");
 
 // Core modules:
 const fs = require("fs");
-const operation = require("../app");
 
 // Own modules:
 const operation = require("../app");
@@ -15,7 +14,7 @@ function deposit() {
     inquirer.prompt([
         {
             name: "accountName",
-            message: "Qual o nome da sua muuh conta?\n"
+            message: "Qual o nome da sua muuh conta?",
         },
     ])
     .then((answer) => {
@@ -30,7 +29,7 @@ function deposit() {
         inquirer.prompt([
             {
                 name: "amount",
-                message: "Quanto deseja depositar?\n"
+                message: "Quanto deseja depositar?",
             },
         ])
         .then((answer) => {
@@ -52,7 +51,7 @@ function deposit() {
 function checkAccount(accountName) {
     if (!fs.existsSync(`accounts/${accountName}.json`)) {
         console.log(
-            chalk.bgRed.black(`\nSistema fora do ar, tente novamente mais tarde!\n`)
+            chalk.bgRed.black(`Sistema fora do ar, tente novamente mais tarde!`)
         );
         return false;
     }
@@ -66,7 +65,7 @@ function addAmount(accountName, amount) {
     // Verify balance:
     if (!amount) {
         console.log(
-            chalk.bgRed.black(`\n Sistema fora do ar, tente novamente mais tarde!\n`)
+            chalk.bgRed.black(`Sistema fora do ar, tente novamente mais tarde!`)
         );    
         return deposit();
     };
@@ -78,7 +77,7 @@ function addAmount(accountName, amount) {
         JSON.stringify(accountData),
         function (err) {
             console.log(err)
-        }
+        },
     )
     console.log(
         cowsay.say({text: chalk.green`Deposito realizado com sucesso, no valor de R${amount}.`, e: "$$", T: " U"})
@@ -89,14 +88,10 @@ function addAmount(accountName, amount) {
 function getAccount(accountName) {
     const accountJSON = fs.readFileSync(`accounts/${accountName}.json`, {
         encoding: "utf8",
-        flag: "r"
-
-    });
+        flag: "r",
+    })
     return JSON.parse(accountJSON);
 };
-
-
-
 
 module.exports = deposit;
 module.exports = checkAccount;

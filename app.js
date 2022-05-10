@@ -20,20 +20,20 @@ function operation() {
         {
             type: "list",
             name: "action",
-            message: "O que deseja fazer?\n",
+            message: "O que deseja fazer?",
             choices: [
                 "Criar Conta",
                 "Consultar Saldo",
                 "Depositar",
                 "Sacar",
                 "Sair"
-            ]
+            ],
         },
     ])
     .then((answer) => {
         const action = answer["action"]
         if (action === "Criar Conta") {
-            const createAccount = require("./functionalities/create_account");
+            const createAccount = require("./functionalities/createAccount");
             createAccount();
         } else if (action === "Consultar Saldo") {
             const getAccountBalance = require("./functionalities/getAccountBalance");
@@ -50,7 +50,6 @@ function operation() {
             );
             process.exit();
         }
-        
     })
     .catch((err) => console.log(err))
 };

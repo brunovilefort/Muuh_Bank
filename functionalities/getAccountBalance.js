@@ -10,15 +10,14 @@ const fs = require("fs");
 const operation = require("../app");
 const createAccount = require("./createAccount");
 const deposit = require("./deposit");
-const checkAccount = require("checkAccount");
-const getAccountBalance = require("getAccountBalance");
+const checkAccount = require("./deposit");
 
 // Show Muuh account balance:
 function getAccountBalance() {
     inquirer.prompt([
         {
             name: "accountName",
-            message: "\nQual o nome da sua conta?\n"
+            message: "Qual o nome da sua conta?",
         },
     ])
     .then((answer) => {
@@ -36,3 +35,5 @@ function getAccountBalance() {
     })
     .catch((err) => console.log(err))
 };
+
+mudule.exports = getAccountBalance;

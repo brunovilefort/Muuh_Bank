@@ -1,0 +1,25 @@
+{
+  "name": "muuh_bank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrunoVilefort/Muuh_Bank.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrunoVilefort/Muuh_Bank/issues"
+  },
+  "homepage": "https://github.com/BrunoVilefort/Muuh_Bank#readme",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "cowsay": "^1.5.0",
+    "inquirer": "^8.2.4"
+  }
+}

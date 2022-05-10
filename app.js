@@ -42,7 +42,8 @@ function operation() {
             const deposit = require("./functionalities/deposit");
             deposit();
         } else if (action === "Sacar") {
-
+            const withdraw = require("./functionalities/withdraw");
+            withdraw();
         } else if (action === "Sair") {
             console.log(
                 cowsay.say({text: chalk.bgBlueBright`Obrigado por utilizar o Muuhbank!`, e: "^^"})

@@ -39,7 +39,7 @@ function operation() {
             const getAccountBalance = require("./functionalities/getAccountBalance");
             getAccountBalance();
         } else if (action === "Depositar") {
-            const deposit = require("./functionalities/deposit");
+            const deposit = require("./functionalities/deposit").deposit;
             deposit();
         } else if (action === "Sacar") {
             const withdraw = require("./functionalities/withdraw");

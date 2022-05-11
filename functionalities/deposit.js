@@ -45,13 +45,13 @@ function deposit() {
 };
 
 
-// helpers abaixo
+// Helpers below
 
 // Verify account:
 function checkAccount(accountName) {
     if (!fs.existsSync(`accounts/${accountName}.json`)) {
         console.log(
-            chalk.bgRed.black(`Sistema fora do ar, tente novamente mais tarde!`)
+            chalk.bgRed.black(`Conta informada não existe!\n`)
         );
         return false;
     }
@@ -65,12 +65,14 @@ function addAmount(accountName, amount) {
     // Verify balance:
     if (!amount) {
         console.log(
-            chalk.bgRed.black(`Sistema fora do ar, tente novamente mais tarde!`)
+            chalk.bgRed.black(`Informe um valor positivo!`)
         );    
         return deposit();
     };
-    accountData.balance = parseFloat(amount) + parseFloat(accountData.balaance);
 
+    // Operator + is equal to Number():
+    accountData.balance = +(amount) + +(accountData.balance);
+    console.log(accountName, accountData);
     // Save in the account file:
     fs.writeFileSync(
         `accounts/${accountName}.json`,
@@ -93,6 +95,8 @@ function getAccount(accountName) {
     return JSON.parse(accountJSON);
 };
 
-module.exports = deposit;
-module.exports = checkAccount;
-module.exports = getAccount;
+module.exports = {
+    deposit,
+    checkAccount,
+    getAccount,
+};

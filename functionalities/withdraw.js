@@ -10,7 +10,8 @@ const fs = require("fs");
 const operation = require("../app");
 const createAccount = require("./createAccount");
 const getAccountBalance = require("./getAccountBalance");
-const getAccount = require("./deposit");
+const getAccount = require("./deposit").getAccount;
+const checkAcoount = require("./deposit").checkAccount;
 
 // Withdraw an amount from user account:
 function withdraw() {

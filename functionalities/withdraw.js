@@ -55,7 +55,7 @@ function removeAmount(accountName, amount) {
     }
 
     // Verify account balance:
-    if (accountData.balace < amount) {
+    if (accountData.balance < amount) {
         console.log(
             cowsay.say({text: chalk.bgRed.black`Saldo indisponível, tente um emprestimo ou procure um agiota.`})
         );

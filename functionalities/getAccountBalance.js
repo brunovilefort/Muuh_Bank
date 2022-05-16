@@ -38,6 +38,7 @@ function getAccountBalance() {
     .catch((err) => console.log(err))
 };
 
+// Interactive menu:
 function menu () {
     inquirer.prompt([
         {

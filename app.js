@@ -45,10 +45,17 @@ function operation() {
             const withdraw = require("./functionalities/withdraw");
             withdraw();
         } else if (action === "Sair") {
+            console.clear();
             console.log(
                 cowsay.say({text: chalk.bgBlueBright`Obrigado por utilizar o Muuhbank!`, e: "^^"})
             );
-            process.exit();
+            function secondsBeforeClosing() {
+                setTimeout(() => {
+                    console.clear();
+                    process.exit();
+                }, 5000);
+            };
+            secondsBeforeClosing();
         }
     })
     .catch((err) => console.log(err))

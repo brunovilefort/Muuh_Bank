@@ -31,7 +31,7 @@ function getAccountBalance() {
 
         const accountData = getAccount(accountName);
         console.log(
-            cowsay.say({text: chalk.bgBlue.white`Muuh, o saldo da sua conta é de R$${accountData.balance}`, e: "oO"})
+            cowsay.say({text: chalk.bgBlue.white`Muuh, o saldo disponível é de R$${accountData.balance}`, e: "oO"})
         );
         operation();
     })
@@ -44,7 +44,7 @@ function menu () {
         {
             name: "options",
             type: "list",
-            message: "O que deseja fazer?",
+            message: "O que deseja fazer?\n",
             choices: [
                 "Informar outra conta",
                 "Criar nova conta",
@@ -62,15 +62,16 @@ function menu () {
                 createAccount();
             break;
             case "Voltar ao menu":
+                console.clear();
                 operation();
             break;
-            default:
-                console.log(`Escolha uma das opções acima.`);
-                menu();
         };
     })
     .catch((err) => console.log(err))
 };
 
 
-module.exports = getAccountBalance;
+module.exports = {
+    getAccountBalance,
+    menu,
+};

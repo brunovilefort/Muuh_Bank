@@ -44,9 +44,6 @@ function deposit() {
     .catch((err) => console.log(err))
 };
 
-
-// Helpers below
-
 // Verify account:
 function checkAccount(accountName) {
     if (!fs.existsSync(`accounts/${accountName}.json`)) {

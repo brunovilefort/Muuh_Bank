@@ -99,7 +99,6 @@ function menu () {
     .catch((err) => console.log(err))
 };
 
-
 module.exports = {
     getAccountBalance,
     menu,

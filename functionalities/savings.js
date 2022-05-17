@@ -49,8 +49,7 @@ function saving() {
                 message: "\nQual opção deseja escolher?",
                 choices: [
                     "Depositar na poupança",
-                    "Resgatar economias",
-                    "Ver rendimentos"
+                    "Resgatar economias"
                 ],
             },
         ])
@@ -71,8 +70,6 @@ function saving() {
                     removeSavingAmount(accountName, savingAmount);
                 })
                 .catch((err) => console.log(err))
-                  /* ================================================= */
-
             } else if (chosenOption === "Resgatar economias") {
                 // Withdrawal of funds:
                 inquirer.prompt([
@@ -88,19 +85,12 @@ function saving() {
                     withdrawFunds(accountName, removeValue);
                 })
                 .catch((err) => console.log(err))
-                  /* ================================================= */
-
-            } else if (chosenOption === "Ver rendimentos") {
-            //Time investing money:
-            currentPassiveIncome();
             }
         })
         .catch((err) => console.log(err))
     })
     .catch((err) => console.log(err))
 };
-
-  /* ================================================= */
 
 // Remove an amount from current account:
 function removeSavingAmount(accountName, savingAmount) {
@@ -175,10 +165,6 @@ function getSavingAccount(accountName) {
     return JSON.parse(savingAccountJSON);
 };
 
-
-
-
-
 // Withdrawal of funds:
 function withdrawFunds(accountName, removeValue) {
 
@@ -199,7 +185,7 @@ function withdrawFunds(accountName, removeValue) {
         );
         return operation();
     };
-    /* ================================================================================== */
+
     let savingAccountData = getSavingAccount(accountName);
 
 
@@ -213,10 +199,7 @@ function withdrawFunds(accountName, removeValue) {
         function (err) {
             console.log(err);
         }
-    )
-
-    /* ================================================================================== */
-
+    );
 
     // Balance:
     accountData.balance = parseFloat(accountData.balance) + parseFloat(removeValue);
@@ -230,43 +213,11 @@ function withdrawFunds(accountName, removeValue) {
         }
     );
     
-   
     console.log(
         cowsay.say({text: chalk.green`Resgate de R$${removeValue} da sua poupança!`, e: "$$"})
     );
     operation();
 };
-
-// Current Passive Income:
-function currentPassiveIncome() {
-    console.log(
-        cowsay.say({text: chalk.green`Atualmente a taxa de rendimento do nosso banco se encontra perto da Selic em 12% a.a.`, e: "$$"})
-    );
-    let yield = 1000;
-    let seconds = 0;
-    let month = 1
-    let intervalId = setInterval(() => {
-        seconds += 2;
-        console.log(`Após ${month} mês, o valor atual da sua conta subiu para ${yield} reais.\n`);
-        month += 1;
-        yield += ((yield / 100) * 1);
-        if (seconds > 22) {
-            clearInterval(intervalId);
-        };
-    }, 2000);
-    setTimeout(() => {
-        console.clear();
-        operation();
-    }, 34000)
-};
-
-
-
-
-
-
-
-
 
 module.exports = {
     saving,

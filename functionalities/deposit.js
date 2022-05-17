@@ -51,7 +51,7 @@ function deposit() {
 function checkAccount(accountName) {
     if (!fs.existsSync(`accounts/${accountName}.json`)) {
         console.log(
-            chalk.bgRed.black(`Conta informada não existe!\n`)
+            chalk.bgRed.black(`\nConta inexistente!\n`)
         );
         return false;
     }
@@ -60,7 +60,7 @@ function checkAccount(accountName) {
 
 // Add an amount:
 function addAmount(accountName, amount) {
-    const accountData = getAccount(accountName);
+    let accountData = getAccount(accountName);
 
     // Verify balance:
     if (!amount) {
@@ -72,7 +72,6 @@ function addAmount(accountName, amount) {
 
     // Operator + is equal to Number():
     accountData.balance = +(amount) + +(accountData.balance);
-    console.log(accountName, accountData);
     // Save in the account file:
     fs.writeFileSync(
         `accounts/${accountName}.json`,
@@ -82,7 +81,7 @@ function addAmount(accountName, amount) {
         },
     )
     console.log(
-        cowsay.say({text: chalk.green`Deposito realizado com sucesso, no valor de R${amount}.`, e: "$$", T: " U"})
+        cowsay.say({text: chalk.green`Depósito realizado com sucesso, no valor de R${amount}.`, e: "$$", T: " U"})
     );
 };
 

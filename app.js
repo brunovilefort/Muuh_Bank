@@ -5,6 +5,8 @@ const cowsay = require("cowsay");
 
 // Core modules:
 const fs = require("fs");
+// Clear initial terminal:
+console.clear();
 
 // Welcome message:
 console.log(
@@ -26,6 +28,7 @@ function operation() {
                 "Consultar Saldo",
                 "Depositar",
                 "Sacar",
+                "Poupança",
                 "Sair"
             ],
         },
@@ -36,11 +39,14 @@ function operation() {
             const createAccount = require("./functionalities/createAccount");
             createAccount();
         } else if (action === "Consultar Saldo") {
-            const getAccountBalance = require("./functionalities/getAccountBalance");
+            const getAccountBalance = require("./functionalities/getAccountBalance").getAccountBalance;
             getAccountBalance();
         } else if (action === "Depositar") {
             const deposit = require("./functionalities/deposit").deposit;
             deposit();
+        } else if (action === "Poupança") {
+            const savings = require("./functionalities/savings")
+            savings();
         } else if (action === "Sacar") {
             const withdraw = require("./functionalities/withdraw");
             withdraw();

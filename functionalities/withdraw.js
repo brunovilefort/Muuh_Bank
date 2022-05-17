@@ -35,7 +35,8 @@ function withdraw() {
         ])
         .then((answer) => {
             const amount = answer["amount"]
-            // Remove amount from bank balance:
+
+            // Remove amount from account balance:
             removeAmount(accountName, amount);
         })
         .catch((err) => console.log(err))
@@ -46,12 +47,12 @@ function withdraw() {
 // Helper below:
 
 function removeAmount(accountName, amount) {
-    const accountData = getAccount(accountName);
+    let accountData = getAccount(accountName);
     if (!amount) {
         console.log(
             cowsay.say({text: chalk.bgRed.black`Ocorreu um erro, tente mais tarde!`, e: "xx", T: " U"})
         );
-        return withdraw();
+        return menu();
     }
 
     // Verify account balance:

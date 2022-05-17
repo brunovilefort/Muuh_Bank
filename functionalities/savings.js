@@ -164,6 +164,18 @@ function removeSavingAmount(accountName, savingAmount) {
     operation();
 };
 
+// Helper below
+
+// Get saving account:
+function getSavingAccount(accountName) {
+    const savingAccountJSON = fs.readFileSync(`savingAccounts/${accountName}.json`, {
+        encoding: "utf8",
+        flag: "r",
+    })
+    return JSON.parse(savingAccountJSON);
+};
+
+
 
 
 
@@ -218,22 +230,12 @@ function withdrawFunds(accountName, removeValue) {
         }
     );
     
-    // Get saving account:
-    function getSavingAccount(accountName) {
-        const savingAccountJSON = fs.readFileSync(`savingAccounts/${accountName}.json`, {
-            encoding: "utf8",
-            flag: "r",
-        })
-        return JSON.parse(savingAccountJSON);
-    };
-
    
     console.log(
         cowsay.say({text: chalk.green`Resgate de R$${removeValue} da sua poupança!`, e: "$$"})
     );
     operation();
 };
-
 
 // Current Passive Income:
 function currentPassiveIncome() {
@@ -247,7 +249,7 @@ function currentPassiveIncome() {
         seconds += 2;
         console.log(`Após ${month} mês, o valor atual da sua conta subiu para ${yield} reais.\n`);
         month += 1;
-        yield += 100
+        yield += ((yield / 100) * 1);
         if (seconds > 22) {
             clearInterval(intervalId);
         };
@@ -266,4 +268,7 @@ function currentPassiveIncome() {
 
 
 
-module.exports = saving;
+module.exports = {
+    saving,
+    getSavingAccount
+};

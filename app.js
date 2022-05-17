@@ -46,7 +46,7 @@ function operation() {
             const deposit = require("./functionalities/deposit").deposit;
             deposit();
         } else if (action === "Poupança") {
-            const savings = require("./functionalities/savings")
+            const savings = require("./functionalities/savings").saving
             savings();
         } else if (action === "Sacar") {
             const withdraw = require("./functionalities/withdraw");

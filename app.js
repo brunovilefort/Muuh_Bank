@@ -29,6 +29,7 @@ function operation() {
                 "Depositar",
                 "Sacar",
                 "Poupança",
+                "Extrato",
                 "Sair"
             ],
         },
@@ -50,6 +51,8 @@ function operation() {
         } else if (action === "Sacar") {
             const withdraw = require("./functionalities/withdraw");
             withdraw();
+        } else if (action === "Extrato") {
+            /* =========================== FALTA CONTEÚDO ===================================== */
         } else if (action === "Sair") {
             console.clear();
             console.log(

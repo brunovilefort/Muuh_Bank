@@ -1,28 +1,3 @@
-// External modules:
-const inquirer = require("inquirer");
-const chalk = require("chalk");
-const cowsay = require("cowsay");
-
-// Core modules:
-const fs = require("fs");
-
-//Own modules:
-const operation = require("../app");
-
-// Clear initial terminal:
-console.clear();
-
-// Function create account:
-function createAccount() {
-    console.log(
-        chalk.bgGreen.black("Parabéns por escolher o nosso banco!")
-    );
-    console.log(
-        chalk.green("Defina as configurações da sua conta a seguir:\n")
-    );
-    buildAccount();
-};
-
 // Verify and build account:
 function buildAccount() {
     inquirer.prompt([
@@ -117,5 +92,3 @@ function buildAccount() {
     })
     .catch((err) => console.log(err))
 };
-
-module.exports = createAccount;

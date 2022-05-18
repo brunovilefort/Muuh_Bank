@@ -1,19 +1,3 @@
-// External modules:
-const inquirer = require("inquirer");
-const chalk = require("chalk");
-const cowsay = require("cowsay");
-
-// Core modules:
-const fs = require("fs");
-
-// Own modules:
-const operation = require("../app");
-const createAccount = require("./createAccount");
-const getSavingAccount = require("./savings").getSavingAccount
-const deposit = require("./deposit").deposit;
-const checkAccount = require("./deposit").checkAccount;
-const getAccount = require("./deposit").getAccount;
-
 // Show Muuh account balance:
 function getAccountBalance() {
     inquirer.prompt([
@@ -68,38 +52,4 @@ function getAccountBalance() {
      
     })
     .catch((err) => console.log(err))
-};
-
-// Interactive menu:
-function menu () {
-    inquirer.prompt([
-        {
-            name: "options",
-            type: "list",
-            message: "O que deseja fazer?\n",
-            choices: [
-                "Informar outra conta",
-                "Criar nova conta",
-                "Voltar ao menu"
-            ],
-        },
-    ])
-    .then((answer) => {
-        const options = answer["options"]
-
-        if (options === "Informar outra conta") {
-            getAccountBalance();
-        } else if (options === "Criar nova conta") {
-            createAccount();
-        } else if (options === "Voltar ao menu") {
-            console.clear();
-            operation();
-        }
-    })
-    .catch((err) => console.log(err))
-};
-
-module.exports = {
-    getAccountBalance,
-    menu,
 };

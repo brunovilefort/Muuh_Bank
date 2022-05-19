@@ -1,6 +1,6 @@
 // Gera uma ID unica para a conta.
 
-function uniqueIdGenerator() {
+module.exports = function uniqueIdGenerator() {
     // Array de string
     let letter = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
     letter = letter.split("");
@@ -34,6 +34,3 @@ function uniqueIdGenerator() {
     };
     return id;
 };
-
-uniqueIdGenerator()
-console.log(uniqueIdGenerator());

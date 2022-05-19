@@ -1,1 +1,36 @@
-[{"nome":"Pedro","idade":23},{"nome":"Igor","idade":13},{"nome":"Samuel","idade":20}]
+[{
+    "nome": "Vilefort",
+    "uniqueId": "C4R6Y1J2v6p",
+    "saldo": 0,
+    "poupanca": 0,
+    "usuario": "bruninho",
+    "senha": 123
+}, {
+    "nome": "Vilefort",
+    "uniqueId": "g106i3Y8t9D1",
+    "saldo": 0,
+    "poupanca": 0,
+    "usuario": "xx",
+    "senha": 123
+}, {
+    "nome": "igor",
+    "uniqueId": "c7m4f1k9y9O",
+    "saldo": 0,
+    "poupanca": 0,
+    "usuario": "xx",
+    "senha": 123
+}, {
+    "nome": "igor",
+    "uniqueId": "G102s2p5T2N1",
+    "saldo": 0,
+    "poupanca": 0,
+    "usuario": "xx",
+    "senha": 123
+}, {
+    "nome": "igor",
+    "uniqueId": "J1C7j108u7S7",
+    "contaCorrente": 0,
+    "poupanca": 0,
+    "usuario": "xx",
+    "senha": 123
+}]

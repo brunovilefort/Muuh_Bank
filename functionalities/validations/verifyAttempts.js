@@ -1,1 +1,0 @@
-// Verifica o número de tentativas

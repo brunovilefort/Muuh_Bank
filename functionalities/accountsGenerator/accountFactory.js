@@ -1,15 +1,13 @@
-const uniqueIdGenerator = require("./uniqueIdGenerator")
-
 // Adicionar contas ao arquivo json.
 module.exports = function accountFactory(user, password, nome) {
-    let conta = {};
-
-    conta.nome = nome;
-    conta.uniqueId = uniqueId;
-    conta.contaCorrente = 0;
-    conta.poupanca = 0;
-    conta.usuario = user;
-    conta.senha = password;
-
-    return conta;
+    const AccountModel = {
+        conta: { 
+            nome: nome,
+            contaCorrente: 0,
+            poupanca: 0,
+            usuario: user,
+            senha: password,
+        }
+    }
+    return AccountModel;
 };

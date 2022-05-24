@@ -1,3 +1,8 @@
-import login from "./functionalities/login";
+// External modules:
+const inquirer = require("inquirer");
+const rootMenu = require("./menus/rootMenu");
+const { welcomeMessage, goodByeCow } = require("./cowMessages");
 
-const login = login();
+console.clear();
+welcomeMessage();
+rootMenu();

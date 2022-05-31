@@ -1,7 +1,6 @@
 const inquirer = require("inquirer");
 const { balanceMessage, operationMessage } = require("../cowMessages");
-const rootMenu = require("./rootMenu");
-const withdrawOrDeposit = require("./withdrawOrDeposit");
+const rootMenu = require("./rootMenu.js");
 
 module.exports = function savingMenu() {
     inquirer.prompt([
@@ -23,12 +22,12 @@ module.exports = function savingMenu() {
             case "Aplicar":
                 console.clear();
                 operationMessage();
-                withdrawOrDeposit("aplicar");
+                currentOperationType("Aplicar")
                 break;
             case "Resgatar":
                 console.clear();
                 operationMessage();
-                withdrawOrDeposit("resgatar");
+                currentOperationType("Resgatar")
                 break;
             case "Saldo":
                 console.clear();

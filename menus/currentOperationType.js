@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
 
-module.exports = function withdrawOrDeposit(operationType, functionality) {
+
+module.exports = function operationType(operationType, functionality) {
     inquirer.prompt([
         {
             type: "number",
@@ -10,7 +11,7 @@ module.exports = function withdrawOrDeposit(operationType, functionality) {
     ])
     .then((answer) => {
         const amount = answer[amount]; 
-        functionality;
+        withdraw();
     })
     .catch((err) => console.log(err))
 };

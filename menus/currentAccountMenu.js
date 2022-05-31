@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
+const fs = require("fs");
 const rootMenu = require("./rootMenu");
-const withdrawOrDeposit = require("./withdrawOrDeposit");
+const currentOperationType = require("./currentOperationType");
 const operationMessage = require("../cowMessages/operationMessage")
 
 module.exports = function currentAccountMenu() {
@@ -23,16 +24,15 @@ module.exports = function currentAccountMenu() {
             case "Saque":
                 console.clear();
                 operationMessage();
-                withdrawOrDeposit("sacar");
+                currentOperationType("sacar");
                 break;
             case "Depósito":
                 console.clear()
                 operationMessage();
-                withdrawOrDeposit("depositar")
+                currentOperationType("depositar")
                 break;
             case "Consultar saldo":
                 console.clear();
-                
                 break;
             case "Voltar ao menu principal":
                 console.clear();

@@ -1,6 +1,6 @@
 const inquirer = require("inquirer")
 
-const fullName = [
+const fullNameInfo = [
     {
         type: "input",
         name: "fullName",
@@ -8,7 +8,7 @@ const fullName = [
     },
 ]
 
-const cellPhone = [
+const cellPhoneInfo = [
     {
         type: "number",
         name: "cellPhone",
@@ -16,7 +16,7 @@ const cellPhone = [
     }
 ]
 
-const email = [
+const emailInfo = [
     {
         type: "input",
         name: "email",
@@ -24,7 +24,7 @@ const email = [
     }
 ]
 
-const cpf = [
+const cpfInfo = [
     {
         type: "number",
         name: "cpf",
@@ -32,7 +32,7 @@ const cpf = [
     }
 ]
 
-const bornDate = [
+const bornDateInfo = [
     {
         type: "number",
         name: "bornDate",
@@ -40,7 +40,7 @@ const bornDate = [
     }
 ]
 
-const username = [
+const usernameInfo = [
     {
         type: "input",
         name: "username",
@@ -48,7 +48,7 @@ const username = [
     },
 ]
 
-const password = [
+const passwordInfo = [
     {
         type: "password",
         name: "password",
@@ -57,12 +57,4 @@ const password = [
     }
 ]
 
-module.exports = {
-    fullName,
-    cellPhone,
-    email,
-    cpf,
-    bornDate,
-    username,
-    password,
-};
+module.exports = { fullNameInfo, cellPhoneInfo, emailInfo, cpfInfo, bornDateInfo, usernameInfo, passwordInfo };

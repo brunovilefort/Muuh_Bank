@@ -36,7 +36,7 @@ const bornDateInfo = [
     {
         type: "number",
         name: "bornDate",
-        message: "Por favor insira a sua data de nascimento:\n",
+        message: "Por favor insira sua data de nascimento (DD/MM/AAAA):\n",
     }
 ]
 

@@ -3,9 +3,8 @@ const {bornDateInfo} = require("../infoRegister")
 
 function bornDate() {
     inquirer.prompt(bornDateInfo).then((answer) => {
-        const validation = new RegExp("[0-9]{2}[/][0-9]{2}[/][0-9]{4}")
         const bornDate = answer["bornDate"]
-        if (!validation.test(bornDate)) {
+        if (true || !bornDate) {
             // TypeError: cpf.match is not a function
             console.log("Data de nascimento verificada com sucesso.");
         } else {
@@ -17,6 +16,3 @@ function bornDate() {
 }
 
 bornDate(24071999)
-
-/*RegExp CPF*/
-/* [0-9]{3}[.][0-9]{3}[.][0-9]{3}[-][0-9]{2} */

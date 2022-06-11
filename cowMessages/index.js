@@ -3,6 +3,7 @@ const welcomeMessage = require("./welcomeMessage");
 const currentAccountMessage = require("./currentAccountMessage");
 const operationMessage = require("./operationMessage");
 const balanceMessage = require("./balanceMessage");
+const backRootMenu = require("./backRootMenu")
 
 
 module.exports = {
@@ -11,4 +12,5 @@ module.exports = {
     currentAccountMessage,
     operationMessage,
     balanceMessage,
+    backRootMenu,
 };

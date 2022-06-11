@@ -1,8 +1,8 @@
 const inquirer = require("inquirer");
 const {passwordInfo} = require("../infoRegister")
 
-module.exports = function password() {
-    inquirer.prompt(passwordInfo).then((answer) => {
+module.exports = async function password() {
+    inquirer.prompt(passwordInfo).await((answer) => {
         const password = answer["password"]
         if (password.match(/^[0-9]{8,8}$/) || !password) {
             console.log("Senha verificada com sucesso! Pode fazer login.");

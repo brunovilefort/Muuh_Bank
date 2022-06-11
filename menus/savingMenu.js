@@ -1,6 +1,5 @@
 const inquirer = require("inquirer");
 const { balanceMessage, operationMessage } = require("../cowMessages");
-const rootMenu = require("./rootMenu.js");
 
 module.exports = function savingMenu() {
     inquirer.prompt([
@@ -35,7 +34,9 @@ module.exports = function savingMenu() {
                 break;
             case "Voltar ao menu principal":
                 console.clear();
-                rootMenu();
+                /*Função rootMenu fica salvo na memória, não precisando salvar em nova variável para executar */
+                require("../cowMessages/backRootMenu")()
+                require("./rootMenu")()
                 break;
         }
     })

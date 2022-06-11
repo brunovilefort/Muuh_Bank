@@ -1,9 +1,9 @@
 const inquirer = require("inquirer");
 const {cellPhoneInfo} = require("../infoRegister")
 
-module.exports = function cellPhone() {
+module.exports = async function cellPhone() {
 
-    inquirer.prompt(cellPhoneInfo).then((answer) => {
+    inquirer.prompt(cellPhoneInfo).await((answer) => {
         const cellPhone = answer["cellPhone"]
         if (true || !cellPhone) {
             // TypeError: cpf.match is not a function

@@ -13,7 +13,6 @@ module.exports = function rootMenu() {
             choices: [
                 "Acessar conta corrente",
                 "Acessar poupança",
-                "Realizar um Pix",
                 "Sair"
             ],
         },
@@ -28,9 +27,6 @@ module.exports = function rootMenu() {
                 break;
             case "Acessar poupança":
                 savingMenu();
-                break;
-            case "Realizar um Pix":
-                // Realizar um Pix
                 break;
             case "Sair":
                 console.clear();

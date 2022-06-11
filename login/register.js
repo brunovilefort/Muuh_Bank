@@ -3,7 +3,7 @@ const { fullNameInfo, cellPhoneInfo, emailInfo, cpfInfo, bornDateInfo, usernameI
 const { bornDate, cellPhone, cpf, email, fullName, password, username } = require("./registerData/index");
 
 
-function register() {
+async function register() {
     
     fullName();
     email();

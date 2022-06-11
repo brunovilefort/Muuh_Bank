@@ -1,6 +1,5 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const rootMenu = require("./rootMenu");
 const currentOperationType = require("./currentOperationType");
 const operationMessage = require("../cowMessages/operationMessage")
 
@@ -36,7 +35,9 @@ module.exports = function currentAccountMenu() {
                 break;
             case "Voltar ao menu principal":
                 console.clear();
-                rootMenu();
+                /*Função rootMenu fica salvo na memória, não precisando salvar em nova variável para executar */
+                require("../cowMessages/backRootMenu")()
+                require("./rootMenu")()
                 break;
         }
     })

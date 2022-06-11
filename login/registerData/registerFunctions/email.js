@@ -1,8 +1,8 @@
 const inquirer = require("inquirer");
 const {emailInfo} = require("../infoRegister")
 
-module.exports = function email() {
-    inquirer.prompt(emailInfo).then((answer) => {
+module.exports = async function email() {
+    inquirer.prompt(emailInfo).await((answer) => {
         const email = answer["email"]
         if (email.match(/\w+@\w+\.\w+/) || !email) {
             console.log("E-mail verificado");

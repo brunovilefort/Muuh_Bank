@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const login = require("./login");
-const register = require("./register")
+const register = require("../functionalities/accountsGenerator/accountsGenerator")
 
 function start() {
   inquirer.prompt([

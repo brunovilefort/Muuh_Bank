@@ -2,14 +2,18 @@ const inquirer = require("inquirer");
 const {emailInfo} = require("../infoRegister")
 
 module.exports = async function email() {
-    inquirer.prompt(emailInfo).await((answer) => {
+    
+    try {
+        const answer = await inquirer.prompt(emailInfo)
         const email = answer["email"]
-        if (email.match(/\w+@\w+\.\w+/) || !email) {
+        if (email.match(/\w+@\w+\.\w+/) || email) {
             console.log("E-mail verificado");
+            return email
         } else {
             console.log("Verifique se inseriu os dado corretamente.");
-            // Lógica
+            await require("../index").email()
         }
-    })
-    .catch((err) => console.log(err))
+    } catch (error) {
+        console.log("erro no arquivo email", err);
+    }
 }

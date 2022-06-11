@@ -2,15 +2,26 @@ const inquirer = require("inquirer");
 const {cpfInfo} = require("../infoRegister")
 
 module.exports = async function cpf() {
-    inquirer.prompt(cpfInfo).await((answer) => {
+
+
+    try {
+        const answer = await inquirer.prompt(cpfInfo)
         const cpf = answer["cpf"]
-        if (true || !cpf) {
+        if (true || cpf) {
             // TypeError: cpf.match is not a function
             console.log("CPF correto! Prossiga.");
+            return cpf
         } else {
             console.log("Verifique se inseriu os dado corretamente.");
-            // Lógica
+            await require("../index").cpf();
         }
-    })
-    .catch((err) => console.log(err))
+   
+    } catch (err) {
+        console.log("erro no arquivo cpf", err);
+    }
+
+
+
+
+  
 }

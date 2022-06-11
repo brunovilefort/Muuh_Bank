@@ -3,8 +3,24 @@ const { goodByeMessage, currentAccountMessage } = require("../cowMessages");
 const timerToClose = require("../helpers/timerToClose");
 const currentAccountMenu = require("./currentAccountMenu");
 const savingMenu = require("./savingMenu")
+const fs = require("fs")
 
 module.exports = function rootMenu() {
+   /* Daqui  */
+    const getAccountJson = fs.readFileSync(`${__dirname}/../functionalities/accounts/accounts.json`, {
+        enconding: "utf-8",
+        flag: "r",
+    }).toString();
+    
+    JSON.parse(getAccountJson).map((account) => {
+        Object.keys(account).map((key) => {
+            if (account[key].logged == true) {
+                // Chama verificação
+                console.log(account[key].fullName);
+            }
+        })
+    })
+    /* Ate aqui mostra o usuario que está logado */
     inquirer.prompt([
         {
             type: "list",

@@ -1,5 +1,3 @@
-const inquirer = require("inquirer")
-
 const fullNameInfo = [
     {
         type: "input",
@@ -34,7 +32,7 @@ const cpfInfo = [
 
 const bornDateInfo = [
     {
-        type: "number",
+        type: "input",
         name: "bornDate",
         message: "Por favor insira sua data de nascimento (DD/MM/AAAA):\n",
     }

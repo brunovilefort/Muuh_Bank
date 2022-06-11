@@ -3,15 +3,14 @@ const { fullNameInfo, cellPhoneInfo, emailInfo, cpfInfo, bornDateInfo, usernameI
 const { bornDate, cellPhone, cpf, email, fullName, password, username } = require("./registerData/index");
 
 
-async function register() {
-    
-    fullName();
-    email();
-    bornDate();
-    cpf();
-    cellPhone();
-    username();
-    password();
+module.exports = async function register() {
+    const newAccount = {}
+    newAccount.fullName = await fullName();
+    newAccount.email = await email();
+    newAccount.bornDate = await bornDate();
+    newAccount.cpf = await cpf();
+    newAccount.cellPhone = await cellPhone();
+    newAccount.username = await username();
+    newAccount.password = await password();
+    return newAccount
 };
-
-register()

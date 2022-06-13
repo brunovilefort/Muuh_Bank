@@ -33,7 +33,7 @@ module.exports = async function login() {
     })
     /* Fim definindo todas contas como deslogadas. */
     /* Login: */
-    fs.writeFileSync(`../functionalities/accounts/accounts.json`, JSON.stringify(accountLogOff));
+    fs.writeFileSync(`${__dirname}/../functionalities/accounts/accounts.json`, JSON.stringify(accountLogOff));
     try {
         const answerUsername = await inquirer.prompt(usernameInfo);
         const usernameData = answerUsername["username"];
@@ -45,16 +45,31 @@ module.exports = async function login() {
                 };
             })
         }).map(ac => (ac[0])).filter(Boolean);
-        if (accountMatch) {
-            const answerPassword = await inquirer.prompt(passwordInfo);
-            const passwordData = answerPassword["password"];
-            /* Verificação password: */
-            if (accountMatch[0][Object.keys(accountMatch[0])].password == passwordData) {
-                accountMatch[0][Object.keys(accountMatch[0])].logged = true;
+        if (accountMatch.length == 0) {
+            console.clear();
+            wrongDataMessage();
+            await setTimeout(() => {
+                login();
+            }, 4000);
+        } else {
+            if (accountMatch) {
+                const answerPassword = await inquirer.prompt(passwordInfo);
+                const passwordData = answerPassword["password"];
+                /* Verificação password: */
+                if (accountMatch[0][Object.keys(accountMatch[0])].password == passwordData) {
+                    accountMatch[0][Object.keys(accountMatch[0])].logged = true;
 
-                fs.writeFileSync(`../functionalities/accounts/accounts.json`, JSON.stringify(accountLogOff));
-                console.clear();
-                rootMenu();
+                    fs.writeFileSync(`${__dirname}/../functionalities/accounts/accounts.json`, JSON.stringify(accountLogOff));
+                    console.clear();
+                    rootMenu();
+                } else {
+                    console.clear();
+                    wrongDataMessage();
+                    setTimeout(() => {
+                        login();
+                    }, 4000);
+                }
+                /* Fim verificação password. */
             } else {
                 console.clear();
                 wrongDataMessage();
@@ -62,13 +77,6 @@ module.exports = async function login() {
                     login();
                 }, 4000);
             }
-            /* Fim verificação password. */
-        } else {
-            console.clear();
-            wrongDataMessage();
-            setTimeout(() => {
-                login();
-            }, 4000);
         }
         /* Fim verificação username. */
     } catch (err) {

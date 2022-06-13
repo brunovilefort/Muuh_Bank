@@ -9,7 +9,7 @@ const {
 const timerToClose = require("../helpers/timerToClose");
 /* Fim Variáveis. */
 
-function start() {
+module.exports = function start() {
   /* Mensagem inicial: */
   console.clear();
   welcomeMessage();
@@ -37,7 +37,7 @@ function start() {
       const chosenOption = answer["enter"];
       switch (chosenOption) {
         case "login":
-          login();
+          require("./login")();
           break;
         case "register":
           register();
@@ -52,5 +52,3 @@ function start() {
     .catch((err) => console.log("Erro no arquivo openBankApp, pasta login:", err))
   /* Fim menu inicial. */
 };
-
-start();

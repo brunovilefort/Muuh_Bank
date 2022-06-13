@@ -1,9 +1,10 @@
 /* Variáveis: */
 const fs = require("fs");
 const {
-    applySuccess,
+    applySuccessMessage,
     amountNullMessage,
     notEnoughBalanceMessage,
+    savingAccountMessage,
 } = require("../../cowMessages");
 /* Fim variáveis: */
 
@@ -30,15 +31,18 @@ module.exports = function apply(amount) {
                     /* Validação saldo insuficiente na conta corrente: */
                 } else if (amount > account[key].contaCorrente) {
                     console.clear();
-                    notEnoughBalanceMessage();
+                    notEnoughBalanceMessage("conta corrente");
                     setTimeout(() => {
+                        console.clear();
+                        savingAccountMessage();
                         require("../../menus/savingMenu")();
                     }, 4000);
                     /* Aplicação efetuada com sucesso: */
                 } else {
+                    account[key].contaCorrente -= amount;
                     account[key].poupanca += amount;
                     console.clear();
-                    applySuccess(amount);
+                    applySuccessMessage(amount);
                     setTimeout(() => {
                         require("../../menus/rootMenu")();
                     }, 4000);

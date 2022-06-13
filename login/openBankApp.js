@@ -53,5 +53,4 @@ function start() {
   /* Fim menu inicial. */
 };
 
-// Inicialização do programa:
-start()
+start();

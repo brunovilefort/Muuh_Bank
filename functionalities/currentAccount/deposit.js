@@ -1,7 +1,7 @@
 /* Variáveis: */
 const fs = require("fs");
 const {
-    depositSuccess,
+    depositSuccessMessage,
     amountNullMessage,
 } = require("../../cowMessages");
 /* Fim variáveis: */
@@ -30,8 +30,10 @@ module.exports = function deposit(amount) {
                 } else {
                     account[key].contaCorrente += amount;
                     console.clear();
-                    depositSuccess(amount);
+                    depositSuccessMessage(amount);
                     setTimeout(() => {
+                        console.clear();
+                        require("../../cowMessages").rootMenuMessage();
                         require("../../menus/rootMenu")();
                     }, 4000);
                     return account[key];

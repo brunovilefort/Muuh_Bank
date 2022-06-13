@@ -1,18 +1,22 @@
 /* Variáveis: */
-const goodByeMessage = require("./goodByeMessage");
-const welcomeMessage = require("./login/welcomeMessage");
-const currentAccountMessage = require("./menu/currentAccountMessage");
-const operationMessage = require("./operationMessage");
-const backRootMenuMessage = require("./menu/backRootMenuMessage");
-const depositSuccess =  require("./depositMessagens/depositSuccess");
-const amountNullMessage = require("./error/amountNullMessage");
-const loginMessage = require("./login/loginMessage");
-const wrongDataMessage = require("./error/wrongDataMessage");
-const registerMessage = require("./login/registerMessage");
-const rootMenuMessage = require("./menu/rootMenuMessage");
-const savingAccountMessage = require("./menu/savingAccountMessage");
-const applySuccess = require("./depositMessagens/applySuccess");
-const notEnoughBalanceMessage = require("./error/notEnoughBalanceMessage");
+const goodByeMessage = require("./loginMessages/goodByeMessage");
+const welcomeMessage = require("./loginMessages/welcomeMessage");
+const currentAccountMessage = require("./menuMessages/currentAccountMessage");
+const operationMessage = require("./menuMessages/operationMessage");
+const backRootMenuMessage = require("./menuMessages/backRootMenuMessage");
+const depositSuccessMessage =  require("./depositMessagens/depositSuccessMessage");
+const amountNullMessage = require("./errorMessages/amountNullMessage");
+const loginMessage = require("./loginMessages/loginMessage");
+const wrongDataMessage = require("./errorMessages/wrongDataMessage");
+const registerMessage = require("./loginMessages/registerMessage");
+const rootMenuMessage = require("./menuMessages/rootMenuMessage");
+const savingAccountMessage = require("./menuMessages/savingAccountMessage");
+const applySuccessMessage = require("./depositMessagens/applySuccessMessage");
+const notEnoughBalanceMessage = require("./errorMessages/notEnoughBalanceMessage");
+const rescueSuccessMessage = require("./withdrawMessages/rescueSuccessMessage");
+const withdrawSuccessMessage = require("./withdrawMessages/withdrawSuccessMessage");
+const currentBalanceMessage = require("./balanceMessages/currentBalanceMessage");
+const savingBalanceMessage = require("./balanceMessages/savingBalanceMessage");
 /* Fim variáveis. */
 
 /* Exportando variáveis: */
@@ -22,14 +26,18 @@ module.exports = {
     currentAccountMessage,
     operationMessage,
     backRootMenuMessage,
-    depositSuccess,
+    depositSuccessMessage,
     loginMessage,
     wrongDataMessage,
     registerMessage,
     rootMenuMessage,
     savingAccountMessage,
     amountNullMessage,
-    applySuccess,
+    applySuccessMessage,
     notEnoughBalanceMessage,
+    rescueSuccessMessage,
+    withdrawSuccessMessage,
+    currentBalanceMessage,
+    savingBalanceMessage,
 };
 /* Fim exportando variáveis. */

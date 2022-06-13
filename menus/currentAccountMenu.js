@@ -1,7 +1,7 @@
 /* Variáveis: */
 const inquirer = require("inquirer");
 const operationType = require("./operationType");
-const operationMessage = require("../cowMessages/operationMessage");
+const {operationMessage} = require("../cowMessages");
 const getCurrentBalance = require("../functionalities/currentAccount/getCurrentBalance");
 /* Fim variáveis. */
 

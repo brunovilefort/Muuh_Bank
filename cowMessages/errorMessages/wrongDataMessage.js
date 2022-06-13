@@ -1,8 +1,9 @@
+/* Variáveis: */
 const cowsay = require("cowsay");
 const chalk = require("chalk");
+/* Fim variáveis. */
 
-
-/* Wrong Data null: */
+/* Mensagem de credenciais de login erradas: */
 module.exports =
     function wrongDataMessage() {
         return console.log(

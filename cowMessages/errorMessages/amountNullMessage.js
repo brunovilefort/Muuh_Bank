@@ -1,10 +1,11 @@
+/* Variáveis: */
 const cowsay = require("cowsay");
 const chalk = require("chalk");
+/* Fim variáveis. */
 
-
-/* Amount null message: */
+/* Mensagem valor nulo ou negativo: */
 module.exports =
-    function amountNull() {
+    function amountNullMessage() {
         return console.log(
             cowsay.say({
                 text: chalk.red `Erro no sistema, valor nulo ou negativo.`,

@@ -73,6 +73,6 @@ module.exports = async function login() {
         /* Fim verificação username. */
     } catch (err) {
         console.log("Erro no arquivo login, pasta login:", err);
-    }
+    };
     /* Fim login. */
 };

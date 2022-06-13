@@ -1,22 +1,27 @@
+/* Variáveis: */
 const inquirer = require("inquirer");
-const {bornDateInfo} = require("../infoRegister")
+const chalk = require("chalk");
+
+const {
+    bornDateInfo,
+} = require("../infoRegister");
+/* Fim variáveis. */
 
 module.exports = async function bornDate() {
-
+    /* Perguntando dados pessoais: */
     try {
-        const answer = await inquirer.prompt(bornDateInfo)
-        const bornDate = answer["bornDate"]
-        if (bornDate.match(/^[0-9]{2}[/][0-9]{2}[/][0-9]{4}$/) || bornDate) {
-            console.log("Data de nascimento verificada com sucesso.");
-            return bornDate
+        const answer = await inquirer.prompt(bornDateInfo);
+        const bornDate = answer["bornDate"];
+        /* Verificação: */
+        if (bornDate.match(/^[0-9]{2}[/][0-9]{2}[/][0-9]{4}$/)) {
+            return bornDate;
         } else {
-            console.log("Verifique se inseriu os dado corretamente.");
+            console.log(chalk.red("Verifique a data e se inseriu as '/'."));
             await require("../index").bornDate();
-        }
+        };
+        /* Fim verificação. */
     } catch (err) {
-        console.log("erro na arquivo", err);
+        console.log("Erro no arquivo bornDate, pasta login/registerData/registerFunctions:", err);
     }
-}
-
-/*RegExp CPF*/
-/* [0-9]{3}[.][0-9]{3}[.][0-9]{3}[-][0-9]{2} */
+    /* Fim dados pessoais. */
+};

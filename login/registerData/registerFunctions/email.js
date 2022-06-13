@@ -1,19 +1,26 @@
+/* Variáveis: */
 const inquirer = require("inquirer");
-const {emailInfo} = require("../infoRegister")
+const chalk = require("chalk");
+const {
+    emailInfo,
+} = require("../infoRegister");
+/* Fim variáveis. */
 
 module.exports = async function email() {
-    
+    /* Perguntando dados pessoais: */
     try {
-        const answer = await inquirer.prompt(emailInfo)
-        const email = answer["email"]
-        if (email.match(/\w+@\w+\.\w+/) || email) {
-            console.log("E-mail verificado");
-            return email
+        const answer = await inquirer.prompt(emailInfo);
+        const email = answer["email"];
+        /* Verificação: */
+        if (email.match(/\w+@\w+\.\w+/)) {
+            return email;
         } else {
-            console.log("Verifique se inseriu os dado corretamente.");
-            await require("../index").email()
-        }
-    } catch (error) {
-        console.log("erro no arquivo email", err);
-    }
-}
+            console.log(chalk.red("Verifique o e-mail, logo em seguida o '@' e o '.com':"));
+            await require("../index").email();
+        };
+        /* Fim verificação. */
+    } catch (err) {
+        console.log("Erro no arquivo email, pasta login/registerData/registerFunctions:", err);
+    };
+    /* Fim dados pessoais. */
+};

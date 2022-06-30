@@ -15,7 +15,7 @@ module.exports = function savingMenu() {
             choices: [
                 "Aplicar",
                 "Resgatar",
-                "Saldo",
+                "Consultar saldo",
                 "Voltar ao menu principal"
             ],
         }, ])
@@ -32,7 +32,7 @@ module.exports = function savingMenu() {
                     operationMessage();
                     operationType("resgatar", "4")
                     break;
-                case "Saldo":
+                case "Consultar saldo":
                     console.clear();
                     require("../functionalities/savingAccount").getSavingBalance();
                     break;
